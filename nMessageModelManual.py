@@ -15,18 +15,18 @@ def runSimulation(strategiesArr, rng, cutoffsArr, stratInd, effortAmp):
     return isCorrectComm, payoff
 
 
+rng = np.random.default_rng()
 
 ### set these values ###
 ### set these values ###
 numSimulations = 10_000
-strategiesArr = [0.4, 0.6]     # arr of x_a, x_b, x_c etc   #for now set manually, should be optimized
+strategiesArr = [0.4, 0.6]  # arr of x_a, x_b, x_c etc
 noiseAmp = 0.05     # sigma
 effortAmp = 0.05    # k
 # constants c_ab, c_bc etc, preceded by -inf and followed by inf for comparison
-cutoffsArr = [-np.inf, 0.5, np.inf]     #for now set manually, should be optimized
+cutoffsArr = [-np.inf, 0.5, np.inf]
 ### END OF set these values ###
 ### END OF set these values ###
-rng = np.random.default_rng()
 
 totalPayoff = 0
 totalSuccessComms = 0
