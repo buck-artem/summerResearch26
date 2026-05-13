@@ -1,3 +1,6 @@
+# sigma, k, but also x_a, x_b, x_c... and c_ab, c_bc... are set manually inside the code
+
+
 import numpy as np
 
 
@@ -20,10 +23,12 @@ rng = np.random.default_rng()
 ### set these values ###
 ### set these values ###
 numSimulations = 10_000
-strategiesArr = [0.4, 0.6]  # arr of x_a, x_b, x_c etc
+# size of strategiesArr determines the number of messages in your model
+strategiesArr = [0.4, 0.6]  # arr of x_a, x_b, x_c etc   #for now set manually, should be optimized
 noiseAmp = 0.05     # sigma
 effortAmp = 0.05    # k
 # constants c_ab, c_bc etc, preceded by -inf and followed by inf for comparison
+# len of cutoffsArr should be len(strategiesArr) + 1
 cutoffsArr = [-np.inf, 0.5, np.inf]
 ### END OF set these values ###
 ### END OF set these values ###
@@ -40,7 +45,7 @@ for stratInd in range(numStrategies):
         totalPayoff += payoff
 
 
-print("Total number of correct communications is", totalSuccessComms)
-print("Estimated probability of a correct communication is", totalSuccessComms / numSimulations)
+print("Total number of successful communications is", totalSuccessComms)
+print("Estimated probability of a successful communication is", totalSuccessComms / numSimulations)
 print("Total payoff is", totalPayoff)
 print("Average payoff is", totalPayoff / numSimulations)

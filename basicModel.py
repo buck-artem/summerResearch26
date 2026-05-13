@@ -1,3 +1,10 @@
+# sigma, k are set manually inside the code.
+# c set to 0.5.
+# optimal x_a, x_b are found by scipy.optimize.minimize(method="Nelder-Mead")
+
+# some of the code looks weird because it was an n-message model downgraded to only 2 messages
+# didn't have time to define the objective function to optimize for n messages
+
 import numpy as np
 from scipy.stats import norm
 from scipy.optimize import minimize
@@ -60,7 +67,7 @@ res = minimize(
 )
 
 # # debugging the minimizer
-# print(res.x)      # minimizer
+# print(res.x)      # minimizing variable
 # print(res.fun)    # minimum value
 # print(res.success)
 # print(res.message)
@@ -82,7 +89,7 @@ for stratInd in range(numStrategies):
         totalPayoff += payoff
 
 
-print("Total number of correct communications is", totalSuccessComms)
-print("Estimated probability of a correct communication is", totalSuccessComms / numSimulations)
+print("Total number of successful communications is", totalSuccessComms)
+print("Estimated probability of a successful communication is", totalSuccessComms / numSimulations)
 print("Total payoff is", totalPayoff)
 print("Average payoff is", totalPayoff / numSimulations)
