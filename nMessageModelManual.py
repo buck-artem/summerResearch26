@@ -45,7 +45,12 @@ for stratInd in range(numStrategies):
         totalPayoff += payoff
 
 
-print("Total number of successful communications is", totalSuccessComms)
+print("Parameters: sigma = ", noiseAmp, "; k = ", effortAmp, sep = "", end="")
+print("; x's = ", end="")
+print(*strategiesArr, sep = ", ", end="")
+print("; c's = ", end="")
+print(*cutoffsArr[1:-1], sep = ", ")
+print("Total number of successful communications is", totalSuccessComms, "out of", numSimulations, "simulations")
 print("Estimated probability of a successful communication is", totalSuccessComms / numSimulations)
 print("Total payoff is", totalPayoff)
 print("Average payoff is", totalPayoff / numSimulations)

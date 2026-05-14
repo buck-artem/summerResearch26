@@ -76,7 +76,6 @@ delta = res.x[0]
 strategiesArr[0] = 0.5 - delta
 strategiesArr[1] = 0.5 + delta
 
-print("The optimal found x_a and x_b are", *strategiesArr)
 
 totalPayoff = 0
 totalSuccessComms = 0
@@ -88,8 +87,9 @@ for stratInd in range(numStrategies):
         totalSuccessComms += isCorrectComm
         totalPayoff += payoff
 
-
-print("Total number of successful communications is", totalSuccessComms)
+print("Parameters: sigma = ", noiseAmp, "; k = ", effortAmp, sep = "")
+print("The optimal found x_a and x_b are", *strategiesArr)
+print("Total number of successful communications is", totalSuccessComms, "out of", numSimulations, "simulations")
 print("Estimated probability of a successful communication is", totalSuccessComms / numSimulations)
 print("Total payoff is", totalPayoff)
 print("Average payoff is", totalPayoff / numSimulations)
